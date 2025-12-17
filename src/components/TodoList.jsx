@@ -12,7 +12,7 @@ const TodoList = ({ todos, handleComplete }) => {
                             Complete
                         </button>
                     ) : (
-                        <span> </span>
+                        <span>Completed</span>
                     )}
                 </li>
             ))}
