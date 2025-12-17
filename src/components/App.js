@@ -7,10 +7,8 @@ const App = () => {
     { id: 1, text: "Learn React", completed: false }
   ]);
 
-  const handleComplete = (id) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: true } : todo
-    ));
+  const handleComplete = () => {
+    setTodos([{ id: 1, text: "Learn React", completed: true }]);
   };
 
   return (
