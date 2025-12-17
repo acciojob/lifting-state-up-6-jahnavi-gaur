@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const TodoList = ({ todos, handleComplete }) => {
   return (
@@ -6,13 +6,11 @@ const TodoList = ({ todos, handleComplete }) => {
       {todos.map(todo => (
         <li key={todo.id}>
           {todo.text}
-          {!todo.completed && (
-            <button onClick={handleComplete}>Complete</button>
-          )}
+          {!todo.completed && <button onClick={handleComplete}>Complete</button>}
         </li>
       ))}
     </ul>
   );
 };
 
-export default TodoList
+export default TodoList;
