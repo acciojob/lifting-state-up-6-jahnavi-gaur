@@ -10,14 +10,13 @@ const App = () => {
   ]);
 
   // Pass the ID of the clicked todo to this function
-  const handleComplete = (id) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, completed: true };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+  // Inside App.js
+  const handleComplete = (todoId) => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === todoId ? { ...todo, completed: true } : todo
+      )
+    );
   };
 
   return (
