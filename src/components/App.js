@@ -11,10 +11,10 @@ const App = () => {
 
   // Pass the ID of the clicked todo to this function
   // Inside App.js
-  const handleComplete = (todoId) => {
+  const handleComplete = (id) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
-        todo.id === todoId ? { ...todo, isComplete: true } : todo
+        todo.id === id ? { ...todo, isComplete: true } : todo
       )
     );
   };
