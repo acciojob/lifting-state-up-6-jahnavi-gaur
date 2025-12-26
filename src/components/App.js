@@ -5,8 +5,8 @@ import TodoList from "./TodoList";
 const App = () => {
   // Initial state with a few items to ensure the list renders correctly
   const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a Project", completed: false }
+    { id: 1, todo: "Learn React", isComplete: false },
+    { id: 2, todo: "Build a Project", isComplete: false }
   ]);
 
   // Pass the ID of the clicked todo to this function
@@ -14,7 +14,7 @@ const App = () => {
   const handleComplete = (todoId) => {
     setTodos(prevTodos =>
       prevTodos.map(todo =>
-        todo.id === todoId ? { ...todo, completed: true } : todo
+        todo.id === todoId ? { ...todo, isComplete: true } : todo
       )
     );
   };
