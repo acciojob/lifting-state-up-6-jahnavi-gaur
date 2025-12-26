@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className="parent">
-      <h1>Todo App</h1>
+      <h1>Parent Component</h1>
       {/* Pass the function as a prop */}
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
