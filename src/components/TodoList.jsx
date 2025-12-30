@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from 'react';
 
-const TodoList = ({ todos, handleComplete }) => {
-  return (
-    <ul>
-      <h2>Child Component</h2>
-      {todos.map((todo) => (
-        <li key={todo.id}>
-          {todo.text}&nbsp;&nbsp;
-          {!todo.isCompleted && (
-            <button onClick={() => handleComplete(todo.id)}>Complete</button>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
+const Tooltip = ({ children, text }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const childWithTooltip = React.cloneElement(children, {
+    className: 'tooltip',
+    onMouseEnter: () => setIsVisible((prev) => true),
+    onMouseLeave: () => setIsVisible((prev) => false),
+    children: (
+      <>
+        {children.props.children}
+        {isVisible && <div className="tooltiptext">{text}</div>}
+      </>
+    ),
+  });
+
+  return childWithTooltip;
 };
 
-export default TodoList;
+export default Tooltip;
