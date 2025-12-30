@@ -1,22 +1,25 @@
-import React from 'react';
-import './../styles/App.css';
-import Tooltip from './Tooltip';
+import React, { useState } from "react";
+import TodoList from "./TodoList";
+
+const todoItems = [
+  { id: 1, text: "Learn React", isCompleted: false },
+  { id: 2, text: "Build a React App", isCompletd: false },
+  { id: 3, text: "Deploy the React App", isCompletd: false },
+];
 
 const App = () => {
+  const [todos, setTodos] = useState(() => todoItems);
+
+  function handleComplete(id) {
+    setTodos((prev) => prev.map((todo) => todo.id === id ? { ...todo, isCompleted: true } : todo ));
+  }
+
   return (
     <div>
-      <h2 className="tooltip">
-        <Tooltip text="This is a tooltip">
-          <div>Hover Over Me</div>
-        </Tooltip>
-      </h2>
-      <p className="tooltip">
-        <Tooltip text="This is another tooltip">
-          <div>Hover over me to see another tooltip</div>
-        </Tooltip>
-      </p>
+      <h1>Parent Component</h1>
+      <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
 };
 
-export default App;
+export default App
